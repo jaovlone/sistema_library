@@ -1,15 +1,14 @@
-package sistema_library.service;
+package biblioteca.service;
 
-import sistema_library.domain.Usuario;
+import biblioteca.domain.Usuario;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioService {
-    private List<Usuario> usuarios = new ArrayList<>();
+    private List<Usuario> usuarios;
 
     public List<Usuario> getUsuarios() {
 
@@ -31,6 +30,11 @@ public class UsuarioService {
         usuario.setDataNascimentoUser(dataNascimentoUser);
         usuario.setEmailUser(emailUser);
         usuario.setIdUser(idUser);
+
+        if (this.usuarios == null) {
+            this.usuarios = new ArrayList<>();
+        }
+
         this.usuarios.add(usuario);
     }
 

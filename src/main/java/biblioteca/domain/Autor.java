@@ -1,4 +1,4 @@
-package sistema_library.domain;
+package biblioteca.domain;
 
 import java.time.LocalDate;
 

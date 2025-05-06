@@ -1,6 +1,6 @@
-package sistema_library.controller;
+package biblioteca.controller;
 
-import sistema_library.service.AutorService;
+import biblioteca.service.AutorService;
 import java.time.LocalDate;
 
 public class AutorController {

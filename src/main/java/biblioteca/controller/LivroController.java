@@ -1,6 +1,6 @@
-package sistema_library.controller;
+package biblioteca.controller;
 
-import sistema_library.service.LivroService;
+import biblioteca.service.LivroService;
 import java.time.LocalDate;
 
 public class LivroController {

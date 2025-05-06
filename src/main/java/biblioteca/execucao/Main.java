@@ -1,6 +1,6 @@
-package sistema_library.execucao;
+package biblioteca.execucao;
 
-import sistema_library.controller.UsuarioController;
+import biblioteca.controller.UsuarioController;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Main {
     protected static void adicionarUsuario() {
         UsuarioController controller = new UsuarioController();
 
-        //controller.adicionaUsuariosFluxoTeste();
+        controller.adicionaUsuariosFluxoTeste();
         controller.recuperarTodosUsuarios();
     }
 }

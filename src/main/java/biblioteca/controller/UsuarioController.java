@@ -1,8 +1,7 @@
-package sistema_library.controller;
-import sistema_library.domain.Usuario;
-import sistema_library.service.UsuarioService;
-import java.time.LocalDate;
-import java.util.Collections;
+package biblioteca.controller;
+import biblioteca.domain.Usuario;
+import biblioteca.service.UsuarioService;
+
 import java.util.List;
 
 public class UsuarioController {
