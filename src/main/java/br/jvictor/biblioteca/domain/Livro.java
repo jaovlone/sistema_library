@@ -4,20 +4,36 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Livro {
-    private ArrayList<String> livros = new ArrayList<>();
+    private ArrayList<String> livros;
     private Integer idBook;
     private String titulo;
-    private String nomeDoAutor;
     private Boolean disponibilidade;
     private LocalDate dataCadastro;
     private LocalDate dataAtualizacao;
+    private Integer idAutor;// Foreig key - Chave estrangeira da outra entidade
 
-    public Livro(String titulo, String nomeDoAutor, Boolean disponibilidade, LocalDate dataCadastro, LocalDate dataAtualizacao, Integer idBook) {
-        this.titulo = titulo;
-        this.nomeDoAutor = nomeDoAutor;
-        this.disponibilidade = disponibilidade;
-        this.dataCadastro = dataCadastro;
-        this.dataAtualizacao = dataAtualizacao;
+//    public Livro(String titulo, Integer idAutor, Boolean disponibilidade, LocalDate dataCadastro, LocalDate dataAtualizacao, Integer idBook) {
+//        this.titulo = titulo;
+//        this.idAutor = idAutor;
+//        this.disponibilidade = disponibilidade;
+//        this.dataCadastro = dataCadastro;
+//        this.dataAtualizacao = dataAtualizacao;
+//        this.idBook = idBook;
+//    }
+
+    public ArrayList<String> getLivros() {
+        return livros;
+    }
+
+    public void setLivros(ArrayList<String> livros) {
+        this.livros = livros;
+    }
+
+    public Integer getIdBook() {
+        return idBook;
+    }
+
+    public void setIdBook(Integer idBook) {
         this.idBook = idBook;
     }
 
@@ -27,14 +43,6 @@ public class Livro {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getNomeDoAutor() {
-        return nomeDoAutor;
-    }
-
-    public void setNomeDoAutor(String nomeDoAutor) {
-        this.nomeDoAutor = nomeDoAutor;
     }
 
     public Boolean getDisponibilidade() {
@@ -61,19 +69,11 @@ public class Livro {
         this.dataAtualizacao = dataAtualizacao;
     }
 
-    public Integer getIdBook() {
-        return idBook;
+    public Integer getIdAutor() {
+        return idAutor;
     }
 
-    public void setIdBook(Integer idBook) {
-        this.idBook = idBook;
-    }
-
-    public ArrayList<String> getLivros() {
-        return livros;
-    }
-
-    public void setLivros(ArrayList<String> livros) {
-        this.livros = livros;
+    public void setIdAutor(Integer idAutor) {
+        this.idAutor = idAutor;
     }
 }

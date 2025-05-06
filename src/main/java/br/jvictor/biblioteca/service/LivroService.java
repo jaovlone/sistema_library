@@ -44,14 +44,16 @@ public class LivroService {
     public void ConsultarEmprestimosDeUmLivro(Livro livro) {
     }
 
-    public void adicionarLivro(String titulo, String nomeAutor, Boolean disponibilidade, LocalDate dataCadastro, LocalDate dataAtualizacao, Integer idLivro) {
-        Livro livro = new Livro(titulo, nomeAutor, disponibilidade, dataCadastro, dataAtualizacao, idLivro);
+    public void adicionarLivro(String titulo, Integer idAutor, Boolean disponibilidade, LocalDate dataCadastro, LocalDate dataAtualizacao, Integer idLivro) {
+        Livro livro = new Livro();
         livro.setTitulo(titulo);
-        livro.setNomeDoAutor(nomeAutor);
         livro.setDisponibilidade(disponibilidade);
         livro.setDataCadastro(dataCadastro);
         livro.setDataAtualizacao(dataAtualizacao);
         livro.setIdBook(idLivro);
+        //setando o relacionamento entre autor e livro
+        livro.setIdAutor(idAutor);
+
         this.livros.add(livro);
 
     }

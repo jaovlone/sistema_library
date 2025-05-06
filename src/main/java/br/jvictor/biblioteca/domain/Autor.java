@@ -8,11 +8,11 @@ public class Autor {
     private LocalDate dataNascimentoAutor;
 
 
-    public Autor(String nomeAutor, LocalDate dataNascimentoAutor, Integer idAutor) {
-        this.nomeAutor = nomeAutor;
-        this.dataNascimentoAutor = dataNascimentoAutor;
-        this.idAutor = idAutor;
-    }
+//    public Autor(String nomeAutor, LocalDate dataNascimentoAutor, Integer idAutor) {
+//        this.nomeAutor = nomeAutor;
+//        this.dataNascimentoAutor = dataNascimentoAutor;
+//        this.idAutor = idAutor;
+//    }
 
     public Integer getIdAutor() {
         return idAutor;

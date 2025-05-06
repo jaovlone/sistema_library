@@ -4,23 +4,24 @@ import br.jvictor.biblioteca.domain.Autor;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AutorService {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private ArrayList<Autor> listaAutores = new ArrayList<>();
+    private List<Autor> autores;
 
-    public ArrayList<Autor> getListaAutores() {
-        return listaAutores;
+    public List<Autor> getAutores() {
+        return autores;
     }
 
-    public void setListaAutores(ArrayList<Autor> listaAutores) {
-        this.listaAutores = listaAutores;
+    public void setAutores(List<Autor> autores) {
+        this.autores = autores;
     }
 
     public void ListarOsAutores() {
-        for(Autor autor : listaAutores){
-            System.out.println("Os autores disponíveis são : " +listaAutores);
+        for(Autor autor : autores){
+            System.out.println("Os autores disponíveis são : " + autores);
         }
     }
 
@@ -37,20 +38,27 @@ public class AutorService {
            // for(Livro livro : )
        // }
     }
-    //TODO vc pode ter um método passando o objeto Autor já preenchido
+
     // ou passar os atributos na assinatura do método (id, nome, data.. )
-    public void adicionarAutor(String nomeAutor, LocalDate dataNascimentoAutor, Integer idAutor) {
-        Autor autor = new Autor(nomeAutor, dataNascimentoAutor, idAutor);
+    public void adicionarAutor(String nomeAutor, String dataNascimentoAutorStr, Integer idAutor) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataNascimentoAutor = LocalDate.parse(dataNascimentoAutorStr, dtf);
+
+        Autor autor = new Autor();
         autor.setDataNascimentoAutor(dataNascimentoAutor);
         autor.setIdAutor(idAutor);
         autor.setNomeAutor(nomeAutor);
-        this.listaAutores.add(autor);
 
+        if (this.autores == null) {
+            this.autores = new ArrayList<>();
+        }
+
+        this.autores.add(autor);
     }
-    /**
-     * TODO esse método negocial.. ele fica no *Service
-     * @param nomeAutor
-     * @param dataNascimentoAutor
-     * @param idAutor
-     */
+
+    public List<Autor> recuperarTodosAutores() {
+        return this.autores;
+    }
+
+
 }
