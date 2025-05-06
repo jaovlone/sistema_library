@@ -1,6 +1,6 @@
-package biblioteca.controller;
+package br.jvictor.biblioteca.controller;
 
-import biblioteca.service.LivroService;
+import br.jvictor.biblioteca.service.LivroService;
 import java.time.LocalDate;
 
 public class LivroController {

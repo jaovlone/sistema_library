@@ -1,4 +1,4 @@
-package biblioteca.service;
+package br.jvictor.biblioteca.service;
 
 import java.util.ArrayList;
 import java.util.List;

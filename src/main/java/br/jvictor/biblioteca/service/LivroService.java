@@ -1,6 +1,6 @@
-package biblioteca.service;
+package br.jvictor.biblioteca.service;
 
-import biblioteca.domain.Livro;
+import br.jvictor.biblioteca.domain.Livro;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;

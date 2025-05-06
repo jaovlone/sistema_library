@@ -1,4 +1,4 @@
-package biblioteca.domain;
+package br.jvictor.biblioteca.domain;
 
 import java.time.LocalDate;
 

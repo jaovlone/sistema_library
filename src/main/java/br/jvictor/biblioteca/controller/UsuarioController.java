@@ -1,6 +1,6 @@
-package biblioteca.controller;
-import biblioteca.domain.Usuario;
-import biblioteca.service.UsuarioService;
+package br.jvictor.biblioteca.controller;
+import br.jvictor.biblioteca.domain.Usuario;
+import br.jvictor.biblioteca.service.UsuarioService;
 
 import java.util.List;
 

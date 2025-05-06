@@ -1,6 +1,6 @@
-package biblioteca.controller;
+package br.jvictor.biblioteca.controller;
 
-import biblioteca.service.AutorService;
+import br.jvictor.biblioteca.service.AutorService;
 import java.time.LocalDate;
 
 public class AutorController {

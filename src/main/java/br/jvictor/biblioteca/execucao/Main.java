@@ -1,6 +1,6 @@
-package biblioteca.execucao;
+package br.jvictor.biblioteca.execucao;
 
-import biblioteca.controller.UsuarioController;
+import br.jvictor.biblioteca.controller.UsuarioController;
 
 public class Main {
     public static void main(String[] args) {
