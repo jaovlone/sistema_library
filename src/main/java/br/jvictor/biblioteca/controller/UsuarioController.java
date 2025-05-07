@@ -31,9 +31,6 @@ public class UsuarioController {
 
     public void recuperarTodosUsuarios() {
         List<Usuario> listaUsuarios = usuarioService.recuperarTodosUsuarios();
-//        for (int i =0; i < listaUsuarios.size(); i++) {
-//
-//        }
 
         if (listaUsuarios == null || listaUsuarios.isEmpty()) {
             System.out.println("Nenhum usuário cadastrado!");

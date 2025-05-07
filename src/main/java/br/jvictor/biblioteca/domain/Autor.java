@@ -7,12 +7,7 @@ public class Autor {
     private String nomeAutor;
     private LocalDate dataNascimentoAutor;
 
-
-//    public Autor(String nomeAutor, LocalDate dataNascimentoAutor, Integer idAutor) {
-//        this.nomeAutor = nomeAutor;
-//        this.dataNascimentoAutor = dataNascimentoAutor;
-//        this.idAutor = idAutor;
-//    }
+    // Não precisa ter uma iniciação dos atributos da classe com os getters and setters posteriormente
 
     public Integer getIdAutor() {
         return idAutor;

@@ -25,21 +25,6 @@ public class AutorService {
         }
     }
 
-    public void BuscarLivrosPeloAutor() {
-        System.out.println("Escreva o nome do autor do livro que deseja buscar.");
-        Scanner scanner = new Scanner(System.in);
-        String autorBuscado = scanner.nextLine();
-        //try {
-           boolean encontrouAutorBuscado = false;
-
-            if (!encontrouAutorBuscado) {
-                System.out.println("\n Nenhum livro encontrado para este autor");
-            }
-           // for(Livro livro : )
-       // }
-    }
-
-    // ou passar os atributos na assinatura do método (id, nome, data.. )
     public void adicionarAutor(String nomeAutor, String dataNascimentoAutorStr, Integer idAutor) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataNascimentoAutor = LocalDate.parse(dataNascimentoAutorStr, dtf);

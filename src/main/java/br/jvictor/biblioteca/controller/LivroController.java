@@ -5,6 +5,7 @@ import br.jvictor.biblioteca.service.AutorService;
 import br.jvictor.biblioteca.service.LivroService;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Scanner;
 
 public class LivroController {
     private LivroService livroService = new LivroService();
@@ -71,8 +72,8 @@ public class LivroController {
 
     private Integer realizarLeituraAutorPeloTerminal() {
         List<Autor> listaAutores = autorService.recuperarTodosAutores();
-
-        String nomeAutorLido = "xxx";//ler do scanner TODO
+        Scanner scanner = new Scanner(System.in);
+        String nomeAutorLido = scanner.nextLine();//ler do scanner TODO
         Integer idAutorEncontrado = buscarIdAutorPorNome(listaAutores, nomeAutorLido);
 
         if (idAutorEncontrado == -1) {

@@ -2,9 +2,10 @@ package br.jvictor.biblioteca.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Livro {
-    private ArrayList<String> livros;
+    private List<Livro> livros;
     private Integer idBook;
     private String titulo;
     private Boolean disponibilidade;
@@ -12,20 +13,13 @@ public class Livro {
     private LocalDate dataAtualizacao;
     private Integer idAutor;// Foreig key - Chave estrangeira da outra entidade
 
-//    public Livro(String titulo, Integer idAutor, Boolean disponibilidade, LocalDate dataCadastro, LocalDate dataAtualizacao, Integer idBook) {
-//        this.titulo = titulo;
-//        this.idAutor = idAutor;
-//        this.disponibilidade = disponibilidade;
-//        this.dataCadastro = dataCadastro;
-//        this.dataAtualizacao = dataAtualizacao;
-//        this.idBook = idBook;
-//    }
+// Não precisa ter uma iniciação dos atributos da classe com os getters and setters posteriormente
 
-    public ArrayList<String> getLivros() {
+    public List<Livro> getLivros() {
         return livros;
     }
 
-    public void setLivros(ArrayList<String> livros) {
+    public void setLivros(List<Livro> livros) {
         this.livros = livros;
     }
 

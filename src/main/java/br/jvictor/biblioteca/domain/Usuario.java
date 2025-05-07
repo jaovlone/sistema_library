@@ -8,13 +8,6 @@ public class Usuario {
     private LocalDate dataNascimentoUser;
     private String emailUser;
 
-//    public Usuario(String nomeUser, LocalDate dataNascimentoUser, String emailUser, Integer idUser) {
-//        this.nomeUser = nomeUser;
-//        this.dataNascimentoUser = dataNascimentoUser;
-//        this.emailUser = emailUser;
-//        this.idUser = idUser;
-//    }
-
     public String getNomeUser() {
         return nomeUser;
     }
