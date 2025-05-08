@@ -3,6 +3,7 @@ package br.jvictor.biblioteca.execucao;
 import br.jvictor.biblioteca.controller.AutorController;
 import br.jvictor.biblioteca.controller.LivroController;
 import br.jvictor.biblioteca.controller.UsuarioController;
+import br.jvictor.biblioteca.service.Emprestimo;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,8 +14,16 @@ public class Main {
 
         adicionarLivros();
 
+        realizarEmprestimoDeLivro();
         //TODO - fazer empréstimo
     }
+    protected static void realizarEmprestimoDeLivro(){
+        Emprestimo emprestimo = new Emprestimo();
+
+        emprestimo.realizarEmprestimoDeLivro();
+
+    }
+
 
     protected static void adicionarUsuario() {
         UsuarioController controller = new UsuarioController();
