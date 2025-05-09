@@ -3,6 +3,7 @@ package br.jvictor.biblioteca.execucao;
 import br.jvictor.biblioteca.controller.AutorController;
 import br.jvictor.biblioteca.controller.LivroController;
 import br.jvictor.biblioteca.controller.UsuarioController;
+import br.jvictor.biblioteca.domain.Livro;
 import br.jvictor.biblioteca.service.Emprestimo;
 
 public class Main {

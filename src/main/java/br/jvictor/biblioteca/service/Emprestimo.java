@@ -1,6 +1,5 @@
 package br.jvictor.biblioteca.service;
 
-import br.jvictor.biblioteca.domain.Autor;
 import br.jvictor.biblioteca.domain.Livro;
 
 import java.util.ArrayList;
@@ -17,30 +16,49 @@ public class Emprestimo {
     public void setEmprestimos(List<Emprestimo> emprestimos) {
         this.emprestimos = emprestimos;
     }
-
-    public void realizarEmprestimoDeLivro() {
+    Livro livro = new Livro();
+    public void realizarEmprestimoDeLivro(List<Livro> livros) {
         System.out.println("/n Qual livro deseja pegar ?");
         Scanner scanner = new Scanner(System.in);
         String livroEscolhido = scanner.nextLine();
-        Boolean disponibilidadeDoLivro = buscarLivroNaBiblioteca(livros, livroEscolhido);
+        buscarLivroNaBiblioteca(livros, livroEscolhido);
+        disponibilizarLivro(livros, );
 
-        if (disponibilidadeDoLivro == true) {
-            System.out.println("/n O" + livroEscolhido + "foi emprestado com sucesso");
-        } else {
-            System.out.println("/n Livro indisponivel no momento");
-        }
 
 
         //TODO
         //this.emprestimos.add(emprestimo);
     }
-    public void buscarLivroNaBiblioteca(List<Livro> livros, String livroEscolhido){
+
+    public boolean disponibilizarLivro(List<Livro> livros, boolean disponibilidade){
+       boolean disponibilidadeDoLivro = livro.getDisponibilidade();
+        for(Livro livro : livros){
+           if(livro.getDisponibilidade()){
+               if (disponibilidade == true) {
+                   return disponibilidade;
+               } else {
+                   return disponibilidade;
+
+               }
+           }
+       }
+
+
+    }
+
+
+
+
+
+
+
+    public String buscarLivroNaBiblioteca(List<Livro> livros, String livroEscolhido){
         for (Livro livro: livros) {
             if (livroEscolhido.equalsIgnoreCase (livro.getTitulo())) {
-                if(livroEscolhido.getDisponibilidade ==true){
-                    return livro.getTitulo();
-                }
-                = livro.getTitulo();
+                return livro.getTitulo();
+
+
+
             }
         }
 
