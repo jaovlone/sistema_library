@@ -18,10 +18,10 @@ public class Main {
         realizarEmprestimoDeLivro();
         //TODO - fazer empréstimo
     }
-    protected static void realizarEmprestimoDeLivro(){
-        Emprestimo emprestimo = new Emprestimo();
 
-        emprestimo.realizarEmprestimoDeLivro();
+    protected static void realizarEmprestimoDeLivro() {
+        Emprestimo emprestimo = new Emprestimo();
+        //colocar o disponibilizarLivro e buscarLivroNaBiblioteca dentro quando ambos estiverem funcionando
 
     }
 

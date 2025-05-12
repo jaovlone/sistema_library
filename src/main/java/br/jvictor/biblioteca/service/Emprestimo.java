@@ -16,59 +16,47 @@ public class Emprestimo {
     public void setEmprestimos(List<Emprestimo> emprestimos) {
         this.emprestimos = emprestimos;
     }
+
     Livro livro = new Livro();
-    public void realizarEmprestimoDeLivro(List<Livro> livros) {
+
+    public void realizarEmprestimoDeLivro(List<Livro> livros, Emprestimo emprestimo) {
         System.out.println("/n Qual livro deseja pegar ?");
         Scanner scanner = new Scanner(System.in);
         String livroEscolhido = scanner.nextLine();
         buscarLivroNaBiblioteca(livros, livroEscolhido);
-        disponibilizarLivro(livros, );
-
+        //disponibilizarLivro(livros, disponibilidade );
+        // Colocar método de disponibilizarLivro dentro do método realizar empréstimo para verificar a disponibilidade do livro , já que o buscarLivroNaBiblioteca verifica se o livro scanneado existe
 
 
         //TODO
-        //this.emprestimos.add(emprestimo);
+        this.emprestimos.add(emprestimo);
     }
 
-    public boolean disponibilizarLivro(List<Livro> livros, boolean disponibilidade){
-       boolean disponibilidadeDoLivro = livro.getDisponibilidade();
-        for(Livro livro : livros){
-           if(livro.getDisponibilidade()){
-               if (disponibilidade == true) {
-                   return disponibilidade;
-               } else {
-                   return disponibilidade;
-
-               }
-           }
-       }
-
-
-    }
-
-
+//    public boolean disponibilizarLivro(List<Livro> livros, boolean disponibilidade){
+//       boolean disponibilidadeDoLivro = livro.getDisponibilidade();
+//        for(Livro livro : livros){
+//           if(livro.getDisponibilidade()){
+//               if (disponibilidade == true) {
+//                   return disponibilidade;
+//               } else {
+//                   return disponibilidade;
+//
+//               }
+//           }
+//       }
+//
+//
+//    }
 
 
-
-
-
-    public String buscarLivroNaBiblioteca(List<Livro> livros, String livroEscolhido){
-        for (Livro livro: livros) {
-            if (livroEscolhido.equalsIgnoreCase (livro.getTitulo())) {
+    public String buscarLivroNaBiblioteca(List<Livro> livros, String livroEscolhido) {
+        for (Livro livro : livros) {
+            if (livroEscolhido.equalsIgnoreCase(livro.getTitulo())) {
                 return livro.getTitulo();
-
-
-
             }
         }
-
-
-
-
-
+        return livroEscolhido;
     }
-
-
 
 
     public void devolucaoDoLivro(boolean disponibilidade) {
