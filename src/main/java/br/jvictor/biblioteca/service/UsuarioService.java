@@ -42,7 +42,5 @@ public class UsuarioService {
     }
 
 
-    public void ConsultarEmprestimosDoUsuario(Usuario usuario) {
-        //mostrar todos emprestimos realizados do livro
-    }
+
 }

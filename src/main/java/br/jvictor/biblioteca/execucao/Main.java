@@ -3,8 +3,7 @@ package br.jvictor.biblioteca.execucao;
 import br.jvictor.biblioteca.controller.AutorController;
 import br.jvictor.biblioteca.controller.LivroController;
 import br.jvictor.biblioteca.controller.UsuarioController;
-import br.jvictor.biblioteca.domain.Livro;
-import br.jvictor.biblioteca.service.Emprestimo;
+import br.jvictor.biblioteca.service.EmprestimoService;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,11 +15,13 @@ public class Main {
         adicionarLivros();
 
         realizarEmprestimoDeLivro();
-        //TODO - fazer empréstimo
+
+        //TODO - fazer Devolução do Livro
+
     }
 
     protected static void realizarEmprestimoDeLivro() {
-        Emprestimo emprestimo = new Emprestimo();
+        EmprestimoService emprestimo = new EmprestimoService();
         //colocar o disponibilizarLivro e buscarLivroNaBiblioteca dentro quando ambos estiverem funcionando
 
     }

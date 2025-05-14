@@ -1,6 +1,5 @@
 package br.jvictor.biblioteca.service;
 
-import br.jvictor.biblioteca.domain.Autor;
 import br.jvictor.biblioteca.domain.Livro;
 
 import java.time.LocalDate;
@@ -35,7 +34,7 @@ public class LivroService {
     }
 
 
-    public List<Livro> ListarTodosLivros() {
+    public List<Livro> listarTodosLivros() {
         for (Livro livro : livros) {
             System.out.println("Os autores disponíveis são : " + livros);
         }
@@ -43,8 +42,7 @@ public class LivroService {
     }
 
 
-    public void ConsultarEmprestimosDeUmLivro() {
-    }
+
 
     public void adicionarLivro(String titulo, Integer idAutor, Boolean disponibilidade, LocalDate
             dataCadastro, LocalDate dataAtualizacao, Integer idLivro) {
