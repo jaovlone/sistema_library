@@ -86,22 +86,37 @@ public class EmprestimoService {
 
 
     public void devolucaoDoLivro() {
+        //procurar na lista de emprestimos
 
-        System.out.println("/n Qual livro deseja devolver?");
+
+        // 2 - Buscar o usuários
+        List<Usuario> usuarios = usuarioService.recuperarTodosUsuarios();
+        System.out.println("/n Qual seu usuário?");
         Scanner scanner = new Scanner(System.in);
-        String tituloLivroDevolvido = scanner.nextLine();
+        String usuarioDevolucao = scanner.nextLine();
+        Usuario usuarioCadastrado = this.buscarUsuarioCadastrado(usuarios, usuarioDevolucao);
+        //achar o usuario na lista de usuarios
 
+        if (usuarioCadastrado == null) {
+            System.out.println("/n O" + usuarioCadastrado + "não está cadastrado na biblioteca");
+            return;
+        }
+        System.out.println("/n Qual livro deseja devolver?");
+        String tituloLivroDevolvido = scanner.nextLine();
         List<Livro> livros = livroService.listarTodosLivros();
         Livro livroDevolvido = this.buscarLivroNaBiblioteca(livros, tituloLivroDevolvido);
+        //achar o livro na lista de livros
 
         if (livroDevolvido == null) {
             System.out.println("/n O" + livroDevolvido + "não está cadastrado na biblioteca");
-        } else {
-            System.out.println("/n O"+ livroDevolvido+ "foi devolvido com sucesso , na data de" + livroDevolvido.getDataAtualizacao());
         }
+        Emprestimo emprestimosDevolvidos = new Emprestimo();
+        emprestimosDevolvidos.setIdBook(livroDevolvido.getIdBook());
+        emprestimosDevolvidos.setIdUser(usuarioCadastrado.getIdUser());
+        emprestimosDevolvidos.setDataFimEmprestimo(LocalDate.now());
 
-
-
+        //this.emprestimos.remove(emprestimoDevolvidos);
+        this.emprestimosDevolvidos.add(emprestimosDevolvidos);
 
         /**
          * TODO
@@ -116,20 +131,91 @@ public class EmprestimoService {
     public void consultarEmprestimosDeUmLivro() {
         System.out.println("/n Qual livro você deseja ver histórico de empréstimos ?");
         Scanner scanner = new Scanner(System.in);
-        String historicoLivro = scanner.nextLine();
-        List<Emprestimo> emprestimos = getEmprestimos();
+        String tituloLivroDevolvido = scanner.nextLine();
+        List<Livro> livros = livroService.listarTodosLivros();
+        Livro livroDevolvido = this.buscarLivroNaBiblioteca(livros, tituloLivroDevolvido);
+
+        Emprestimo emprestimosDevolvidos = new Emprestimo();
+        emprestimosDevolvidos.setIdBook(livroDevolvido.getIdBook());
+        System.out.println("Os empréstimos do livro informado são:" + livroDevolvido.getDataCadastro() + livroDevolvido.getDataAtualizacao());
 
         //procura na lista de emprestimo se o livro está lá . comparando os ids dos dois
         //TODO
     }
 
-    public void consultarEmprestimosDoUsuario() {
+    public void consultarEmprestimosDoUsuario(List<Usuario> usuarios) {
         System.out.println("/n Qual usuário você deseja ver histórico de empréstimos ?");
         Scanner scanner = new Scanner(System.in);
-        String historicoUsuario = scanner.nextLine();
-        List<Emprestimo> emprestimos = getEmprestimos();
+        String nomeUsuarioCadastrado = scanner.nextLine();
+        Usuario usuarioCadastrado = this.buscarUsuarioCadastrado(usuarios, nomeUsuarioCadastrado);
 
-        //procura na lista de emprestimo se o usuário está lá . comparando os ids dos dois
-        //TODO
+        if (nomeUsuarioCadastrado == null) {
+            System.out.println("/n O" + usuarioCadastrado + "não está cadastrado na biblioteca");
+            return;
+
+
+        }
     }
+    public  Integer realizarLeituraLivroPeloTerminal() {
+        List<Livro> livros = livroService.recuperarTodosLivros();
+        Scanner scanner = new Scanner(System.in);
+        String tituloLivroDevolvido = scanner.nextLine();//ler do scanner TODO
+        Integer idLivroEncontrado = buscarIdLivroPorTitulo(livros, tituloLivroDevolvido);
+
+        if (idLivroEncontrado == -1) {
+            System.out.println("Livro não encontrado. Programa finalizado!");
+
+            //Chamada de uma função recursiva
+            realizarLeituraLivroPeloTerminal();
+        }
+
+        return idLivroEncontrado;
+    }
+
+    private Integer buscarIdLivroPorTitulo(List<Livro> livros, String tituloLivroDevolvido) {
+        Integer idLivroEncontrado = -1;
+
+        for (Livro livro : livros) {
+            if (tituloLivroDevolvido.equalsIgnoreCase(livro.getTitulo())) {
+                //se encontrar ==> recuperar o id do autor
+                idLivroEncontrado = livro.getIdBook();
+            }
+        }
+
+        return idLivroEncontrado;
+    }
+    private Integer realizarLeituraUserPeloTerminal() {
+        List<Usuario> usuarios = usuarioService.recuperarTodosUsuarios();
+        Scanner scanner = new Scanner(System.in);
+        String nomeUsuario = scanner.nextLine();//ler do scanner TODO
+        Integer idUsuarioEncontrado = buscarIdUsuarioPorNome(usuarios, nomeUsuario);
+
+        if (idUsuarioEncontrado == -1) {
+            System.out.println("Usuário não encontrado. Programa finalizado!");
+
+            //Chamada de uma função recursiva
+            realizarLeituraUserPeloTerminal();
+        }
+
+        return idUsuarioEncontrado;
+    }
+
+    private Integer buscarIdUsuarioPorNome(List<Usuario> usuarios, String nomeUsuario) {
+        Integer idUsuarioEncontrado = -1;
+
+        for (Usuario usuario : usuarios) {
+            if (nomeUsuario.equalsIgnoreCase(usuario.getNomeUser())) {
+                //se encontrar ==> recuperar o id do usuario
+                idUsuarioEncontrado = usuario.getIdUser();
+            }
+        }
+
+        return idUsuarioEncontrado;
+    }
+
+
 }
+
+
+
+
