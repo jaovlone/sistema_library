@@ -3,7 +3,14 @@ package br.jvictor.biblioteca.execucao;
 import br.jvictor.biblioteca.controller.AutorController;
 import br.jvictor.biblioteca.controller.LivroController;
 import br.jvictor.biblioteca.controller.UsuarioController;
+import br.jvictor.biblioteca.domain.Livro;
+import br.jvictor.biblioteca.domain.Usuario;
+import br.jvictor.biblioteca.service.AutorService;
 import br.jvictor.biblioteca.service.EmprestimoService;
+import br.jvictor.biblioteca.service.LivroService;
+
+import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,8 +23,29 @@ public class Main {
 
         realizarEmprestimoDeLivro();
 
-        //TODO - fazer Devolução do Livro
+        devolucaoDoLivro();
 
+        buscarUsuarioCadastrado();
+
+        buscarLivroNaBiblioteca();
+
+        consultarEmprestimosDeUmLivro();
+
+        realizarLeituraLivroPeloTerminal();
+
+        realizarLeituraUserPeloTerminal();
+
+        buscarIdUsuarioPorNome();
+
+        adicionarAutor();
+
+        recuperarTodosAutores();
+
+        buscarLivroPeloTitulo();
+
+        listarTodosLivros();
+
+        adicionarLivro();
     }
 
     protected static void realizarEmprestimoDeLivro() {
@@ -45,4 +73,78 @@ public class Main {
 
         controller.adicionaLivrosTesteFluxo();
     }
+    protected static void devolucaoDoLivro(){
+        EmprestimoService emprestimoService = new EmprestimoService();
+
+        emprestimoService.devolucaoDoLivro();
+    }
+    protected static void buscarUsuarioCadastrado(List<Usuario> usuarios, String nomeUsuario){
+        EmprestimoService emprestimoService = new EmprestimoService();
+
+        emprestimoService.buscarUsuarioCadastrado(usuarios, nomeUsuario);
+    }
+    protected  static void buscarLivroNaBiblioteca(List<Livro> livros, String tiuloLivroEscolhido){
+        EmprestimoService emprestimoService = new EmprestimoService();
+
+        emprestimoService.buscarLivroNaBiblioteca(livros,tiuloLivroEscolhido);
+    }
+    protected  static void consultarEmprestimosDeUmLivro(){
+        EmprestimoService emprestimoService = new EmprestimoService();
+
+        emprestimoService.consultarEmprestimosDeUmLivro();
+    }
+    protected static void consultarEmprestimosDoUsuario(List<Usuario> usuarios){
+        EmprestimoService emprestimoService = new EmprestimoService();
+
+        emprestimoService.consultarEmprestimosDoUsuario(usuarios);
+    }
+    protected static void realizarLeituraLivroPeloTerminal(){
+        EmprestimoService emprestimoService = new EmprestimoService();
+
+        emprestimoService.realizarLeituraLivroPeloTerminal();
+    }
+    protected  static void realizarLeituraUserPeloTerminal(){
+        EmprestimoService emprestimoService = new EmprestimoService();
+
+        emprestimoService.realizarLeituraUserPeloTerminal();
+    }
+    protected  static void buscarIdUsuarioPorNome(){
+        EmprestimoService emprestimoService = new EmprestimoService();
+
+        emprestimoService.buscarIdUsuarioPorNome();
+    }
+    protected  static void adicionarAutor(String nomeAutor, String dataNascimentoAutorStr, Integer idAutor){
+        AutorService autorService = new AutorService();
+
+        autorService.adicionarAutor(nomeAutor, dataNascimentoAutorStr, idAutor);
+    }
+
+    protected static void recuperarTodosAutores(){
+        AutorService autorService = new AutorService();
+
+        autorService.recuperarTodosAutores();
+    }
+    protected static void buscarLivroPeloTitulo(){
+        LivroService livroService = new LivroService();
+
+        livroService.buscarLivroPeloTitulo();
+    }
+    protected static void listarTodosLivros(){
+        LivroService livroService = new LivroService();
+
+        livroService.listarTodosLivros();
+    }
+    protected static void adicionarLivro(String titulo, Integer idAutor, Boolean disponibilidade, LocalDate
+            dataCadastro, LocalDate dataAtualizacao, Integer idLivro){
+        LivroService livroService = new LivroService();
+
+        livroService.adicionarLivro(titulo, idAutor,  disponibilidade,
+                dataCadastro,  dataAtualizacao,  idLivro);
+    }
+
+
+
+
+
+
 }
