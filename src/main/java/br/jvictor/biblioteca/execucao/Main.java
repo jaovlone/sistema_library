@@ -13,76 +13,82 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
+
     public static void main(String[] args) {
 
-        adicionarUsuario();
+        //    TODO instanciar os outros Main
+        MainUsuario.realizarFluxoUsuario();
 
-        adicionarAutores();
-
-        adicionarLivros();
-
-        realizarEmprestimoDeLivro();
-
-        devolucaoDoLivro();
-
-        buscarUsuarioCadastrado();
-
-        buscarLivroNaBiblioteca();
-
-        consultarEmprestimosDeUmLivro();
-
-        realizarLeituraLivroPeloTerminal();
-
-        realizarLeituraUserPeloTerminal();
-
-        buscarIdUsuarioPorNome();
-
-        adicionarAutor();
-
-        recuperarTodosAutores();
-
-        buscarLivroPeloTitulo();
-
-        listarTodosLivros();
-
-        adicionarLivro();
-    }
-
-    protected static void realizarEmprestimoDeLivro() {
-        EmprestimoService emprestimo = new EmprestimoService();
-        //colocar o disponibilizarLivro e buscarLivroNaBiblioteca dentro quando ambos estiverem funcionando
-
+        //TODO criar MainLivro, MainAutores e MainEmprestimo
     }
 
 
-    protected static void adicionarUsuario() {
-        UsuarioController controller = new UsuarioController();
 
-        controller.adicionaUsuariosFluxoTeste();
-        controller.recuperarTodosUsuarios();
-    }
 
+    //bota no MainAutores
     protected static void adicionarAutores() {
         AutorController controller = new AutorController();
 
         controller.adicionaAutorTesteFluxo();
     }
 
+    protected  static void adicionarAutor(String nomeAutor, String dataNascimentoAutorStr, Integer idAutor){
+        AutorService autorService = new AutorService();
+
+        autorService.adicionarAutor(nomeAutor, dataNascimentoAutorStr, idAutor);
+    }
+
+    protected static void recuperarTodosAutores(){
+        AutorService autorService = new AutorService();
+
+        autorService.recuperarTodosAutores();
+    }
+
+    //********************************************************************************************************
+
+    //bota no MainLivros TODO
     protected static void adicionarLivros() {
         LivroController controller = new LivroController();
 
         controller.adicionaLivrosTesteFluxo();
     }
+
+    protected static void buscarLivroPeloTitulo(){
+        LivroService livroService = new LivroService();
+
+        livroService.buscarLivroPeloTitulo();
+    }
+    protected static void listarTodosLivros(){
+        LivroService livroService = new LivroService();
+
+        livroService.listarTodosLivros();
+    }
+    protected static void adicionarLivro(String titulo, Integer idAutor, Boolean disponibilidade, LocalDate
+            dataCadastro, LocalDate dataAtualizacao, Integer idLivro){
+        LivroService livroService = new LivroService();
+
+        livroService.adicionarLivro(titulo, idAutor,  disponibilidade,
+                dataCadastro,  dataAtualizacao,  idLivro);
+    }
+
+
+    //******************************************************************************************
+
+
+    // botar no MainEmprestimo  TODO
+
+    protected static void realizarEmprestimoDeLivro() {
+        EmprestimoService emprestimo = new EmprestimoService();
+        //colocar o disponibilizarLivro e buscarLivroNaBiblioteca dentro quando ambos estiverem funcionando
+        emprestimo.realizarEmprestimoDeLivro();
+    }
+
     protected static void devolucaoDoLivro(){
         EmprestimoService emprestimoService = new EmprestimoService();
 
         emprestimoService.devolucaoDoLivro();
     }
-    protected static void buscarUsuarioCadastrado(List<Usuario> usuarios, String nomeUsuario){
-        EmprestimoService emprestimoService = new EmprestimoService();
 
-        emprestimoService.buscarUsuarioCadastrado(usuarios, nomeUsuario);
-    }
     protected  static void buscarLivroNaBiblioteca(List<Livro> livros, String tiuloLivroEscolhido){
         EmprestimoService emprestimoService = new EmprestimoService();
 
@@ -108,39 +114,9 @@ public class Main {
 
         emprestimoService.realizarLeituraUserPeloTerminal();
     }
-    protected  static void buscarIdUsuarioPorNome(){
-        EmprestimoService emprestimoService = new EmprestimoService();
 
-        emprestimoService.buscarIdUsuarioPorNome();
-    }
-    protected  static void adicionarAutor(String nomeAutor, String dataNascimentoAutorStr, Integer idAutor){
-        AutorService autorService = new AutorService();
 
-        autorService.adicionarAutor(nomeAutor, dataNascimentoAutorStr, idAutor);
-    }
 
-    protected static void recuperarTodosAutores(){
-        AutorService autorService = new AutorService();
-
-        autorService.recuperarTodosAutores();
-    }
-    protected static void buscarLivroPeloTitulo(){
-        LivroService livroService = new LivroService();
-
-        livroService.buscarLivroPeloTitulo();
-    }
-    protected static void listarTodosLivros(){
-        LivroService livroService = new LivroService();
-
-        livroService.listarTodosLivros();
-    }
-    protected static void adicionarLivro(String titulo, Integer idAutor, Boolean disponibilidade, LocalDate
-            dataCadastro, LocalDate dataAtualizacao, Integer idLivro){
-        LivroService livroService = new LivroService();
-
-        livroService.adicionarLivro(titulo, idAutor,  disponibilidade,
-                dataCadastro,  dataAtualizacao,  idLivro);
-    }
     //so pra subir mesmo
 
 

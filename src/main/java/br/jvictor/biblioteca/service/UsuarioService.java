@@ -37,7 +37,6 @@ public class UsuarioService {
     }
 
     public List<Usuario> recuperarTodosUsuarios() {
-
         return this.usuarios;
     }
 

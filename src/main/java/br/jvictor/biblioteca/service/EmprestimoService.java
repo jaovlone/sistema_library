@@ -70,6 +70,7 @@ public class EmprestimoService {
                 usuarioCadastrado = usuario;
             }
         }
+
         return usuarioCadastrado;
     }
 
@@ -184,7 +185,8 @@ public class EmprestimoService {
 
         return idLivroEncontrado;
     }
-    private Integer realizarLeituraUserPeloTerminal() {
+
+    public Integer realizarLeituraUserPeloTerminal() {
         List<Usuario> usuarios = usuarioService.recuperarTodosUsuarios();
         Scanner scanner = new Scanner(System.in);
         String nomeUsuario = scanner.nextLine();//ler do scanner TODO
@@ -200,7 +202,7 @@ public class EmprestimoService {
         return idUsuarioEncontrado;
     }
 
-    private Integer buscarIdUsuarioPorNome(List<Usuario> usuarios, String nomeUsuario) {
+    public Integer buscarIdUsuarioPorNome(List<Usuario> usuarios, String nomeUsuario) {
         Integer idUsuarioEncontrado = -1;
 
         for (Usuario usuario : usuarios) {

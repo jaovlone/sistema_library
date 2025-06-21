@@ -29,17 +29,10 @@ public class UsuarioController {
 
     }
 
-    public void recuperarTodosUsuarios() {
+    public List<Usuario> recuperarTodosUsuarios() {
         List<Usuario> listaUsuarios = usuarioService.recuperarTodosUsuarios();
 
-        if (listaUsuarios == null || listaUsuarios.isEmpty()) {
-            System.out.println("Nenhum usuário cadastrado!");
-        } else {
-            //foreach
-            for(Usuario usuario: listaUsuarios) {
-                System.out.println("Nome: " + usuario.getNomeUser() + " => email: " + usuario.getEmailUser());
-            }
-        }
+        return listaUsuarios;
 
     }
 
