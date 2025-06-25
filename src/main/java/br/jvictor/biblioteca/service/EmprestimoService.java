@@ -75,6 +75,8 @@ public class EmprestimoService {
     }
 
     public Livro buscarLivroNaBiblioteca(List<Livro> livros, String tiuloLivroEscolhido) {
+
+
         Livro livroEncontrado = null;
 
         for (Livro livro : livros) {
@@ -144,7 +146,7 @@ public class EmprestimoService {
         //TODO
     }
 
-    public void consultarEmprestimosDoUsuario(List<Usuario> usuarios) {
+    public void consultarEmprestimosDoUsuario(List<Usuario> usuarios, String nomeUsuarioCadastrado) {
         System.out.println("/n Qual usuário você deseja ver histórico de empréstimos ?");
         Scanner scanner = new Scanner(System.in);
         String nomeUsuarioCadastrado = scanner.nextLine();
